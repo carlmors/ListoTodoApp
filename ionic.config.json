@@ -1,0 +1,7 @@
+{
+  "name": "ListoTodoApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
