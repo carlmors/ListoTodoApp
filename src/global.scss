@@ -35,3 +35,64 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* 🔥 Tus estilos personalizados empiezan aquí 🔥 */
+
+:root {
+    /* Colores para toda la app */
+    --ion-background-color: #0D0B2B; /* Fondo profundo */
+    --ion-text-color: #D9D9E3; /* Texto general */
+  
+    --ion-color-primary: #D836F9; /* Botones y acentos */
+    --ion-color-primary-contrast: #0D0B2B; /* Contraste (texto en botón primario) */
+  
+    --ion-color-secondary: #9C27B0; /* Púrpura complementario (opcional) */
+    --ion-color-tertiary: #673AB7; /* Otro morado de apoyo (opcional) */
+  
+    --ion-color-light: #D9D9E3; /* Blanco pastelado para textos claros */
+    --ion-color-medium: #8a8a99; /* Gris medio para textos secundarios */
+    --ion-color-dark: #0D0B2B; /* Fondo oscuro */
+  
+    --ion-border-color: #2a274f; /* Para bordes suaves */
+  }
+  
+  /* Forzar Modo Oscuro siempre */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ion-background-color: #0D0B2B;
+      --ion-text-color: #D9D9E3;
+      --ion-color-primary: #D836F9;
+      --ion-color-primary-contrast: #0D0B2B;
+    }
+  }
+
+  /* Fondo de toda la app */
+.pastel-fondo {
+    --background: var(--ion-background-color);
+  }
+  
+  /* Tarjetas */
+  .pastel-card {
+    background: var(--ion-background-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Estilos de textos principales */
+  .titulo-principal {
+    font-size: 1.4rem;
+    color: var(--ion-text-color);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .subtitulo {
+    font-size: 1.1rem;
+    color: var(--ion-text-color);
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  ion-label, ion-input, ion-textarea {
+    color: var(--ion-text-color);
+  }

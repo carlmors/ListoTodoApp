@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="titulo-principal">Agregar Tarea</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelar()" color="primary">
+        Cancelar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding pastel-fondo">
+
+  <ion-item color="dark">
+    <ion-label position="floating" color="light">Título</ion-label>
+    <ion-input [(ngModel)]="titulo" color="light"></ion-input>
+  </ion-item>
+
+  <ion-item color="dark">
+    <ion-label position="floating" color="light">Descripción</ion-label>
+    <ion-textarea [(ngModel)]="descripcion" color="light"></ion-textarea>
+  </ion-item>
+
+  <ion-item color="dark">
+    <ion-label color="light">Categoría</ion-label>
+    <ion-select [(ngModel)]="categoriaSeleccionada" interface="popover" placeholder="Seleccionar categoría">
+      <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">
+        {{ categoria.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="guardar()" class="ion-margin-top">
+    Guardar
+  </ion-button>
+
+</ion-content>

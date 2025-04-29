@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administrar Categorías</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Nueva Categoría</ion-label>
+    <ion-input [(ngModel)]="nuevaCategoria"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" (click)="agregarCategoria()" class="ion-margin-top">
+    Agregar Categoría
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let categoria of categoriasPaginadas">
+      <ion-label *ngIf="categoriaEditando?.id !== categoria.id">
+        {{ categoria.nombre }}
+      </ion-label>
+      <ion-input
+        *ngIf="categoriaEditando?.id === categoria.id"
+        [(ngModel)]="nombreEditado"
+        (ionBlur)="guardarEdicion(categoria)"
+        placeholder="Nuevo nombre"
+      ></ion-input>
+
+      <ion-buttons slot="end">
+        <ion-button fill="clear" color="warning" (click)="comenzarEdicion(categoria)" *ngIf="categoriaEditando?.id !== categoria.id">
+          Editar
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="eliminarCategoria(categoria.id)">
+          Eliminar
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-text-center ion-margin-top">
+    <ion-button (click)="anteriorPagina()" [disabled]="paginaActual === 1">
+      Anterior
+    </ion-button>
+    <ion-button (click)="siguientePagina()" [disabled]="paginaActual >= totalPaginas">
+      Siguiente
+    </ion-button>
+  </div>
+</ion-content>

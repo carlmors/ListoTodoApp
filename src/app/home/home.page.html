@@ -1,20 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<!DOCTYPE html>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="titulo-principal">Mis Tareas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding pastel-fondo">
+  <ion-item color="dark">
+    <ion-label color="light">Filtrar por Categoría</ion-label>
+    <ion-select [(ngModel)]="categoriaSeleccionada" (ionChange)="aplicarFiltro()" interface="popover" placeholder="Seleccionar">
+      <ion-select-option value="todas">Todas</ion-select-option>
+      <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">
+        {{ categoria.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list lines="inset">
+    <ion-item color="dark" *ngFor="let tarea of tareasFiltradas">
+      <ion-checkbox slot="start" [(ngModel)]="tarea.completada" (ionChange)="toggleCompletado(tarea)" color="primary">
+    </ion-checkbox>
+      <ion-label>
+        <h2>{{ tarea.titulo }}</h2>
+        <p *ngIf="tarea.descripcion">{{ tarea.descripcion }}</p>
+      </ion-label>
+      <ion-button fill="clear" color="primary" (click)="eliminarTarea(tarea.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-text color="medium" *ngIf="tareasFiltradas.length === 0" class="ion-text-center">
+    <p>No hay tareas en esta categoría.</p>
+  </ion-text>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-right: 20px;" *ngIf="activarAgregarTarea">
+    <ion-fab-button color="primary" (click)="abrirModalAgregarTarea()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" style="margin-left: 20px;">
+    <ion-fab-button color="primary" (click)="abrirModalAdminCategorias()">
+      <ion-icon name="settings-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

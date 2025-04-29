@@ -1,0 +1,44 @@
+ion-content {
+    --background: #0D0B2B;
+    color: #d9d9e3;
+  }
+  
+  ion-toolbar {
+    --background: #0D0B2B;
+    --color: #d9d9e3;
+  }
+  
+  ion-title {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+  
+  ion-slide h2 {
+    color: #d836f9;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  ion-slide p {
+    color: #d9d9e3;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  ion-button {
+    --background: #d836f9;
+    --color: #ffffff;
+    margin-top: 2rem;
+  }
+
+  .modal-onboarding {
+    --height: auto;
+    --max-height: 60%;
+    --border-radius: 20px;
+    --width: 90%;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+  }

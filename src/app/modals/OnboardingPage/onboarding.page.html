@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ pasos[pasoActual].titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" class="contenido-onboarding">
+  <div class="texto-onboarding">
+    <p>{{ pasos[pasoActual].descripcion }}</p>
+  </div>
+
+  <ion-button expand="block" (click)="avanzar()">
+    {{ pasoActual < pasos.length - 1 ? 'Siguiente' : 'Comenzar' }}
+  </ion-button>
+</ion-content>
