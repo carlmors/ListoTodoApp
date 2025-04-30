@@ -16,8 +16,7 @@ export class AgregarTareaPage {
   descripcion: string = '';
   categoriaSeleccionada: string = '';
 
-  @Input() categorias: Categoria[] = []; // 👈 Aquí recibimos las categorías disponibles
-
+  @Input() categorias: Categoria[] = [];
   constructor(private modalCtrl: ModalController) {}
 
   async guardar() {
